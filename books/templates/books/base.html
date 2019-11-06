@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{#{% extends 'books/index.html' %}#}
+<html lang="en" class="no-js">
+<head>
+	 {% load staticfiles %}
+
+        <meta charset="utf-8"/>
+        <title>NurReader</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+
+        <!-- GLOBAL MANDATORY STYLES -->
+        <link href= "{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- THEME STYLES -->
+            <link href="{%  static 'css/layout.css'%}" rel="stylesheet" type="text/css"/>
+        <link href="{%  static 'css/layout.min.css'%}" rel="stylesheet" type="text/css"/>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'favicon.ico'%}"/>
+</head>
+
+<body id="body" data-spy="scroll" data-target=".header">
+<header class="header navbar-fixed-top">
+            <!-- Navbar -->
+            <nav class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="menu-container js_nav-item">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon"></span>
+                        </button>
+
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a class="logo-wrap" href="{%  static ''%}">
+                                <img class="logo-img logo-img-main" src="{% static 'img/logo_nur.png' %}" alt="Asentus Logo">
+                                <img class="logo-img logo-img-active" src="{% static 'img/logo_nur_dark.png' %}" alt="Asentus Logo">
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-collapse">
+                        <div class="menu-container">
+                            <ul class="nav navbar-nav navbar-nav-right">
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#blocks">Popular</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#">Genres</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#">Log in</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#">Registration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Navbar Collapse -->
+                </div>
+            </nav>
+            <!-- Navbar -->
+        </header>
+        <!--========== END HEADER ==========-->
+
+        <!--========== SLIDER ==========-->
+        <div class="promo-block">
+            <div class="container">
+                <div class="margin-b-40">
+                    <h1 class="promo-block-title">largest readership platform</h1>
+                    <p class="promo-block-text">Look no further. You came to the right ... place</p>
+                </div>
+                <a class="js_popup-youtube btn-theme btn-theme-md btn-white-bg text-uppercase" href="base.html" title="Intro Video"> Search </a>
+            </div>
+        </div>
+        <!--========== SLIDER ==========-->
+    <div id="blocks">
+                    <div class="container content-lg">
+                         <div class="row text-center margin-b-40">
+                    <div class="col-sm-6 col-sm-offset-3">
+                    <h2>Popular Books</h2>
+                        <div class="row">                    
+                       {%block content%}
+                        {%endblock%}      
+                    </div>
+                </div>
+</div>
+</div>
+
+ 
+
+        <!-- Back To Top -->
+        <a href="{%  static 'javascript:void(0);' %}" class="js-back-to-top back-to-top">Top</a>
+
+        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="{%  static 'vendor/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{%  static 'vendor/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="{%  static 'vendor/jquery.back-to-top.js' %}" type="text/javascript"></script>
+       
+
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="{%  static 'js/layout.min.js' %}" type="text/javascript"></script>
+       
+</body>
+</html>
