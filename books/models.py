@@ -1,4 +1,7 @@
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
+
+
 class Book(models.Model):
 	title = models.CharField(max_length=250)
 	subtitle = models.CharField(max_length=250)
@@ -7,5 +10,6 @@ class Book(models.Model):
 	isbn = models.CharField(max_length=13)
 	def __str__(self):
 		return self.title
+
 
 
