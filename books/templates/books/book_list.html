@@ -63,6 +63,16 @@
                   <p class="author">by {{book.author}}</p>
                   <p class="published">{{book.date}}</p>
                   <p class="synopsis">{{book.description}}</p>
+                  <h2 class="overlay_title">Of Mice and Men</h2>
+                  <p class="author">by John Steinbeck</p>
+                  <p class="published">1937</p>
+                    <a href ="#" id="like"><span class="icon icon-thumbs-up"></span></a><span id="liked">{{ book.likes }}</span>
+                    <a href ="#" id="dislike" style="padding-left: 25px"><span class="icon icon-thumbs-down"></span></a>
+                    <span id="disliked">{{ book.dislikes }}</span>
+
+
+                  <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus convallis sem. Nunc sed tristique augue. Aenean at nulla vel lacus volutpat bibendum vitae ut nibh. Aliquam eu metus et purus rutrum malesuada. Aenean in auctor mauris,
+                    non vulputate libero. Nullam auctor, purus ut cursus convallis, lectus tellus dignissim lectus, id tempor ipsum leo ut nulla. Vestibulum vitae elit erat.</p>
                   <a href="#" class="button preview">Preview</a>
                 </div>
                 <div class="overlay-preview">
@@ -969,4 +979,53 @@
       </section>
 
     </div>
+     <script>
+        $(document).ready(function(){
+            $("#like").on('click', function(e){
+                e.preventDefault();
+                var like = "like";
+                var book_id = $("#book_id").attr("data-id");
+                data = {
+                    like: like,
+                    book_id: book_id
+                };
+
+                $.ajax({
+                    type: "GET",
+                    url:{% url 'user_reaction' %},
+                    dataType: "json",
+                    data: data,
+                    success: function(data){
+                        $('#liked').html(data.like);
+                        $('#disliked').html(data.dislike);
+                    },
+                })
+                })
+            });
+
+     $(document).ready(function(){
+            $("#dislike").on('click', function(e){
+                e.preventDefault();
+                var dislike = "dislike";
+                var book_id = $("#book_id").attr("data-id");
+                data = {
+                    dislike: dislike,
+                    book_id: book_id
+                };
+
+                $.ajax({
+                    type: "GET",
+                    url:{% url 'user_reaction' %},
+                    dataType: "json",
+                    data: data,
+                    success: function(data){
+                        $('#liked').html(data.like);
+                        $('#disliked').html(data.dislike);
+                    } ,
+                })
+
+                })
+            })
+     </script>
+
 {% endblock %}
