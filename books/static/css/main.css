@@ -181,7 +181,7 @@ a.button:hover, a.button:focus {
   width: 100%;
   height: calc(100% - 1em);
   color: #d2d6d5;
-  font-weight: light;
+  /*font-weight: light;*/
   font-size: 15px;
   text-align: left;
   pointer-events: none;
