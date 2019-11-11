@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
+from django.views.generic import View
 from .models import Book
 from django.http import JsonResponse
+
+
 # import json
 # from django.http import HttpResponse
 # from django.views import View
@@ -9,25 +12,24 @@ from django.http import JsonResponse
 # from .models import LikeDislike
 
 class BookListView(ListView):
-	model = Book
-	template_name = 'books/book_list.html'
-def book_detail(request, pk):
-    book = get_object_or_404(Book, pk=pk)
-    return render(request, 'books/book_detail.html', {'book': book})
+    model = Book
+    template_name = 'books/book_list.html'
 
 
-class UserReactionView(ListView):
+
+class UserReactionView(View):
     template_name = "books/book_list.html"
+
     def get(self, request, *args, **kwargs):
         book_id = self.request.GET.get("book_id")
         book = Book.objects.get(id="book_id")
         like = self.request.GET.get("like")
         dislike = self.request.GET.get("dislike")
-        if like and (request.user not in book.users_reaction.all()):
+        if like:    #and (request.user not in book.users_reaction.all()):
             book.likes += 1
             book.users_reaction.add(request.user)
             book.save()
-        if dislike and (request.user not in book.users_reaction.all()):
+        if dislike:  #and (request.user not in book.users_reaction.all()):
             book.dislikes += 1
             book.users_reaction.add(request.user)
             book.save()
@@ -36,9 +38,6 @@ class UserReactionView(ListView):
             'dislikes': book.dislikes
         }
         return JsonResponse(data)
-
-
-
 
 # class VotesView(View):
 #     model = None  # Модель данных - Статьи или Комментарии

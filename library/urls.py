@@ -25,6 +25,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
 path('admin/', admin.site.urls),
 path('', include('books.urls')),
-path('accounts/', include('allauth.urls')),
+path('accounts/', include('books.urls')),
 path('login/', TemplateView.as_view(template_name="books/login.html")),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
