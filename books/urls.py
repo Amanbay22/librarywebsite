@@ -8,10 +8,7 @@ from .views import BookListView
 from .views import UserReactionView
 
 from . import views
-app_name = 'ajax'
 
 urlpatterns = [
 path('', BookListView.as_view(), name='home'),
-path('book/<int:pk>/', views.book_detail, name='book_detail'),
-url(r'^user_reaction/$', UserReactionView.as_view(), name='user_reaction'),
 ]
