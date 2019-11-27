@@ -859,3 +859,7 @@ a.button:hover, a.button:focus {
   font-size: 12px;
   text-align: center;
 }
+.masthead {
+  text-align: center;
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}

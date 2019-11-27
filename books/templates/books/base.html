@@ -12,10 +12,10 @@
 <!-- partial:index.partial.html -->
 <div id="main-container" class="main-container nav-effect-1">
   <nav class="nav-menu nav-effect-1" id="menu-1">
-    <h2 class="">The Library</h2>
+    <h2 class="" >The Library</h2>
     <ul>
-      <li><a class="" href="#">Checkout</a></li>
-      <li><a class="" href="login/">Login</a></li>
+      <li><a class="" href="{% url 'home' %}">Home</a></li>
+      <li><a class="" href="{% url 'login' %}">Login</a></li>
       <li><a class="" href="#">About</a></li>
       <li><a class="" href="#">Contact</a></li>
     </ul>
@@ -29,7 +29,7 @@
 
         <!-- Logo -->
         <div class="main-logo">
-          <a href="#" class="logo">The Library</a>
+          <a href="{% url 'home' %}" class="logo">The Library</a>
         </div>
 
         <div class="menu-search">
@@ -58,8 +58,7 @@
     <!-- Footer Content -->
     <footer id="footer" class="page-footer">
       <div class="row footer-wrapper">
-        <div class="original-version small-12 columns"><a href="http://interactivejoe.com/book-viewer/" target="_blank"><em>Original Version can be found here.</em></a></div>
-        <div class="copyright small-12 columns">&copy; 2016 - <a href="http://interactivejoe.com/"  target="_blank">InteractiveJoe</a></div>
+        <div class="copyright small-12 columns">&copy; 2019 </div>
       </div>
     </footer>
 
