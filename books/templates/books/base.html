@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <title>Book Viewer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css'><link rel="stylesheet" href="{%static 'css/main.css'%}">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css'>
+<link rel="stylesheet" href="{%static 'css/main.css'%}">
 
 </head>
 <body>
@@ -15,9 +16,13 @@
     <h2 class="" >The Library</h2>
     <ul>
       <li><a class="" href="{% url 'home' %}">Home</a></li>
-      <li><a class="" href="{% url 'login' %}">Login</a></li>
-      <li><a class="" href="#">About</a></li>
-      <li><a class="" href="#">Contact</a></li>
+      {%if user.is_authenticated%}
+      <li><a class="" href="{%url 'profile'%}">Profile</a></li>
+      <li><a class="" href="{%url 'logout'%}">Logout</a></li>
+      {%else %}
+      <li><a class="" href="{%url 'login'%}">Login</a></li>
+      <li><a class="" href="{%url 'register'%}">Registration</a></li>
+      {%endif%}
     </ul>
   </nav>
 

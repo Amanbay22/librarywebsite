@@ -5,13 +5,11 @@ from django.conf.urls import url
 # from .models import LikeDislike
 # from .models import Article
 from .views import BookListView
-from .views import UserReactionView
 
 from . import views
 
 urlpatterns = [
     path('', BookListView.as_view(), name='home'),
     path('book/<int:pk>/', views.book_detail, name='book_detail'),
-    path('login/', views.login, name='login'),
-    url(r'^user_reaction/$', UserReactionView.as_view(), name='user_reaction'),
+    url(r'^like/$', views.like_book, name='like'),
 ]
