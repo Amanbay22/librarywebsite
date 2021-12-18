@@ -19,7 +19,7 @@ class Book(models.Model):
 	lar_image = models.ImageField(upload_to='pictures_large', max_length= 255 , null=True, blank = True)
 	sm_image = models.ImageField(upload_to='pictures_small', max_length= 255 , null=True, blank = True)
 	pdf = models.FileField(upload_to='books', max_length= 255 , null=True, blank = True)
-	likes = models.ManyToManyField(User, related_name='likes', blank=True)
+	likes = models.ManyToManyField(User, related_name='likes', blank=True, null=True)
 
 	def __str__(self):
 		return self.title
